@@ -1,0 +1,65 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.1.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 93cee342a03fd61df980ee648cae6c8be211481bc21ca583231479b6902c5f49
+
+name:           whisk
+version:        0.1.0.0
+description:    Please see the README on GitHub at <https://github.com/alexoro412/whisk#readme>
+homepage:       https://github.com/alexoro412/whisk#readme
+bug-reports:    https://github.com/alexoro412/whisk/issues
+author:         Alex Oro
+maintainer:     alexoro412@gmail.com
+copyright:      2018 Alex Oro
+license:        BSD3
+license-file:   LICENSE
+build-type:     Simple
+extra-source-files:
+    README.md
+    ChangeLog.md
+
+source-repository head
+  type: git
+  location: https://github.com/alexoro412/whisk
+
+library
+  exposed-modules:
+      Lib
+  other-modules:
+      Paths_whisk
+  hs-source-dirs:
+      src
+  build-depends:
+      base >=4.7 && <5
+    , stm
+  default-language: Haskell2010
+
+executable whisk-exe
+  main-is: Main.hs
+  other-modules:
+      Paths_whisk
+  hs-source-dirs:
+      app
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , stm
+    , whisk
+  default-language: Haskell2010
+
+test-suite whisk-test
+  type: exitcode-stdio-1.0
+  main-is: Spec.hs
+  other-modules:
+      Paths_whisk
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      base >=4.7 && <5
+    , stm
+    , whisk
+  default-language: Haskell2010
