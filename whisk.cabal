@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 93cee342a03fd61df980ee648cae6c8be211481bc21ca583231479b6902c5f49
+-- hash: 27752ec441b5b409414d29dd58c7e249d8ccf38f8e29f6f014c1f188c0d4bb5f
 
 name:           whisk
 version:        0.1.0.0
@@ -19,7 +19,6 @@ license-file:   LICENSE
 build-type:     Simple
 extra-source-files:
     README.md
-    ChangeLog.md
 
 source-repository head
   type: git
@@ -27,13 +26,20 @@ source-repository head
 
 library
   exposed-modules:
-      Lib
+      Listener
+      Parser
+      Wiimote
   other-modules:
       Paths_whisk
   hs-source-dirs:
       src
   build-depends:
-      base >=4.7 && <5
+      attoparsec
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , hid
+    , mtl
     , stm
   default-language: Haskell2010
 
@@ -45,7 +51,12 @@ executable whisk-exe
       app
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      attoparsec
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , hid
+    , mtl
     , stm
     , whisk
   default-language: Haskell2010
@@ -59,7 +70,12 @@ test-suite whisk-test
       test
   ghc-options: -threaded -rtsopts -with-rtsopts=-N
   build-depends:
-      base >=4.7 && <5
+      attoparsec
+    , base >=4.7 && <5
+    , bytestring
+    , containers
+    , hid
+    , mtl
     , stm
     , whisk
   default-language: Haskell2010
