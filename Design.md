@@ -1,5 +1,7 @@
 # Design
 
+Misc: Enable BinaryLiterals syntax extension. 
+
 ## Wrapper around HIDAPI 
 
 - When opening an HID connection, wrap the handler in bracket, for closing the connection. 
@@ -42,6 +44,7 @@ Planned Events
 ### Commands 
 
 *TODO* can the chan be omitted in these somehow? Perhaps a ReaderT on the event monad. But then we'd need liftIO...
+*TODO* Properly set rumble bit according to state
 
 Current commands 
 

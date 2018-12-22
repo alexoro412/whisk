@@ -25,7 +25,9 @@ dependencies:
 - bytestring 
 - hid
 - mtl 
+- transformers 
 - containers 
+- async 
 
 library:
   source-dirs: src
