@@ -34,8 +34,8 @@ mainLoop = do
             catch 
                 (withWiimote serial eventHandler) 
                 (\e -> case (e :: WiimoteException) of 
-                    _ -> do 
-                        hammer $ Notify "Wiimote disconnected")
+                    _ -> pure ()
+                        {- hammer $ Notify "Wiimote disconnected" -})
             -- serial <- selectOne serials
     --         me <- myThreadId 
     --         (withWiimote serial eventHandler) `catch` \e -> case (e :: WiimoteException) of 
@@ -121,9 +121,9 @@ eventHandler wiimoteRef (Pressed btn) = do
 --     putStrLn $ show btn ++ " was pressed!"
 -- eventHandler wiimoteRef (Released btn) = do
 --     putStrLn $ show btn ++ " was released!"
--- eventHandler wiimoteRef Disconnected = do
---     hammer . Notify $ "Disconnected"
-    -- enumerateWiimotes wiimoteRef 
+eventHandler wiimoteRef Disconnected = do
+    hammer . Notify $ "Wiimote disconnected"
+    enumerateWiimotes wiimoteRef 
 
 eventHandler wiimoteRef (Connected serial) = do
     setLEDs wiimoteRef $ LEDState (False, True, True, False)
