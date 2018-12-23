@@ -1,3 +1,5 @@
+{-# LANGUAGE LambdaCase #-}
+
 module Wiimote where
 
 import           Data.Bits       (bit, (.|.))
@@ -62,3 +64,25 @@ data ExtensionType = Nunchuk deriving (Show) -- TODO support more extensions
 
 data IRState = NotImplemented deriving (Show)
     -- TODO finish this one
+
+data Button
+    = A
+    | B
+    | One
+    | Two
+    | Plus
+    | Minus
+    | Home
+    | DpadLeft
+    | DpadRight
+    | DpadDown
+    | DpadUp
+    deriving (Show, Eq, Ord)
+
+isDirectional :: Button -> Bool 
+isDirectional = \case 
+    DpadDown -> True 
+    DpadUp -> True 
+    DpadLeft -> True 
+    DpadRight -> True 
+    _ -> False 

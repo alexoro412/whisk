@@ -29,6 +29,7 @@ dependencies:
 - containers 
 - async 
 
+
 library:
   source-dirs: src
 
@@ -42,6 +43,7 @@ executables:
     - -with-rtsopts=-N
     dependencies:
     - whisk
+    - process 
 
 tests:
   whisk-test:

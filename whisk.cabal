@@ -4,7 +4,7 @@ cabal-version: 1.12
 --
 -- see: https://github.com/sol/hpack
 --
--- hash: 638a35ae8483e813d21ebcdebe2161c0e445438ac45383cd6d735fa8226f893f
+-- hash: cb466bdc7fff5f30334e5ce221a9940d1954e29d4c0a85280f5f2a6c704edfdb
 
 name:           whisk
 version:        0.1.0.0
@@ -26,6 +26,7 @@ source-repository head
 
 library
   exposed-modules:
+      Command
       Listener
       Parser
       Wiimote
@@ -60,6 +61,7 @@ executable whisk-exe
     , containers
     , hid
     , mtl
+    , process
     , stm
     , transformers
     , whisk
